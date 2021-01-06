@@ -1,0 +1,5 @@
+*.xls
+*.xlsx
+chloropleth_debugging.ipynb
+.ipynb_checkpoints
+.DS_Store
