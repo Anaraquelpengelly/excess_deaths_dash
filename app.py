@@ -55,7 +55,7 @@ with open(ASSET_PATH.joinpath('Local_Authority_Districts_(December_2017)_General
 
 app = dash.Dash(__name__)
 app.config.suppress_callback_exceptions = True
-
+server = app.server
 
 #define layout
 app.layout = html.Div(
@@ -65,7 +65,11 @@ app.layout = html.Div(
                     html.Div(className='two columns div-user-controls',
                              children=[
                                  html.H2('Excess deaths per Local Authority in England and Wales in 2020'),
-                                 html.P('Visualising Excess deaths in the UK in 2020 at the local authority level. Data was downloaded from the ONS website.')
+                                 html.P('Visualising Excess deaths in the UK in 2020 at the local authority level. Data was downloaded from the ONS website.'),
+                                 dcc.Markdown(children= '''Data was acquired from: 
+- Population estimates 2019: [ONS population estimates](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland)
+- Death registrations for 2020 in England and Wales: [ONS death registrations](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/bulletins/deathsregisteredweeklyinenglandandwalesprovisional/previousReleases), [this](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/deathregistrationsandoccurrencesbylocalauthorityandhealthboard) dataset in particular.
+- Death registrations for 2015 to 2019: [ONS death information](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/adhocs/12615deathregistrationsandfiveyearaverageweeklydeathsbylocalauthorityandplaceofoccurrenceenglandandwales2015to2019) ''', style = {'font-family':'Roboto', 'font-size':'14px'})
                                  
                                 ]
                              ),
