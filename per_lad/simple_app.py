@@ -291,9 +291,11 @@ def update_map_title(period, selected_value):
             Input('weeks-slider', 'value')])
 def update_w_ex_deaths(period, selected_value):
     if period == 'Yearly':
-        return f"The total excess deaths in 2020 compared to the average of 2015-2019 was {round(np.sum(df[df['Area_Name'].isin(['England', 'Wales'])]['excess_deaths_per_100t_20']), 1)} per 100,000 inhabitants"
+        x=round(np.sum(df[df['Area_Name'].isin(['England', 'Wales'])]['Excess_2020_from_avg']), 1)
+        return f'The total excess deaths in England and Wales in 2020 compared to the average of 2015-2019 was {x}.' 
     if period == 'Weekly':
-        return f"The total excess deaths in week {selected_value} compared to the average of 2015-2019 was {round(np.sum(df_maps[df_maps['Week_Number'] == selected_value]['excess_deaths_per_100t_20']), 1)} per 100,000 inhabitants"
+        x=round(np.sum(df_maps[df_maps['Week_Number'] == selected_value]['Excess_2020_from_avg']), 1)
+        return f"The total excess deaths in week {selected_value} of 2020 compared to the average in 2015-2019 in week {selected_value} was {x}."
 
 
 
