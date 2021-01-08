@@ -3,3 +3,8 @@
 chloropleth_debugging.ipynb
 .ipynb_checkpoints
 .DS_Store
+weekly/
+per_lad/
+excess_deaths_countrywide.ipynb
+
+
